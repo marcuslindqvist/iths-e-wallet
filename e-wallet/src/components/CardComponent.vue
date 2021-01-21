@@ -3,22 +3,28 @@
     <header>
       <img src="@/../../assets/chip-light.svg" alt="chip" />
     </header>
-    <section class="number"></section>
+    <section class="number">{{ test.number }}</section>
     <section class="info">
       <aside class="holder">
         <span>Cardholder Name</span>
-        <p></p>
+        <p>{{ test.holder }}</p>
       </aside>
       <aside class="valid">
         <span>Valid until</span>
-        <p>MM/YY</p>
+        <p>{{ test.validMonth }}/{{ test.validYear }}</p>
       </aside>
     </section>
   </article>
 </template>
 
 <script>
-export default {};
+export default {
+  computed: {
+    test() {
+      return this.$root.card;
+    },
+  },
+};
 </script>
 
 <style lang="css" scoped>

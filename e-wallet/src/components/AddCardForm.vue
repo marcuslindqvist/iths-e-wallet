@@ -7,6 +7,7 @@
       maxlength="16"
       placeholder="XXXX XXXX XXXX XXXX"
       class="col-2"
+      v-model="test.number"
     />
     <label for="cardholder" class="col-2">Cardholder Name</label>
     <input
@@ -14,10 +15,11 @@
       name="cardholder"
       placeholder="Firstname Lastname"
       class="col-2"
+      v-model="test.holder"
     />
     <label for="month" class="col-1">Month</label>
     <label for="year" class="col-1">Year</label>
-    <select name="month" class="col-1">
+    <select name="month" class="col-1" v-model="test.validMonth">
       <option value="01">01</option>
       <option value="02">02</option>
       <option value="03">03</option>
@@ -31,7 +33,7 @@
       <option value="11">11</option>
       <option value="12">12</option>
     </select>
-    <select name="year" class="col-1">
+    <select name="year" class="col-1" v-model="test.validYear">
       <option value="21">21</option>
       <option value="22">22</option>
       <option value="23">23</option>
@@ -39,17 +41,46 @@
       <option value="25">25</option>
     </select>
     <label for="vendor" class="col-2">Vendor</label>
-    <select name="vendor" class="col-2">
+    <select name="vendor" class="col-2" v-model="test.vendor">
       <option value="Bitcoin Inc">Bitcoin Inc</option>
       <option value="Blockchain Inc">Blockchain Inc</option>
       <option value="Evil Corp">Evil Corp</option>
       <option value="Ninja Bank">Ninja Bank</option>
     </select>
+    <button @click="addCard"></button>
   </section>
 </template>
 
 <script>
-export default {};
+export default {
+  data: () => ({
+    inputNumber: "",
+    inputName: "",
+    selectedMonth: 0,
+    selectedYear: 0,
+    selectedVendor: "",
+  }),
+
+  computed: {
+    test() {
+      return this.$root.card;
+    },
+  },
+
+  methods: {
+    addCard() {
+      // const newCard = {
+      //   number: this.inputNumber,
+      //   name: this.inputName,
+      //   month: this.selectedMonth,
+      //   year: this.selectedYear,
+      //   vendor: this.selectedVendor,
+      // };
+      console.log(this.getCard);
+      // this.$root.cards.push(this.getCard);
+    },
+  },
+};
 </script>
 
 <style lang="css" scoped>

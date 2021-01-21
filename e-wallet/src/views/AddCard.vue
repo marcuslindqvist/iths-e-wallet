@@ -4,8 +4,6 @@
     <CardComponent class="blank"></CardComponent>
     <AddCardForm></AddCardForm>
     <a href="#" class="cta">Add Card</a>
-
-    <router-link to="/">Home</router-link>
   </div>
 </template>
 
