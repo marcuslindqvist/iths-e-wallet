@@ -18,6 +18,11 @@ export default {
     CardComponent,
     AddCardForm,
   },
+  data() {
+    return {
+      cards: [],
+    };
+  },
 };
 </script>
 
