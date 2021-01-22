@@ -7,7 +7,7 @@
       maxlength="16"
       placeholder="XXXX XXXX XXXX XXXX"
       class="col-2"
-      v-model="test.number"
+      v-model="number"
     />
     <label for="cardholder" class="col-2">Cardholder Name</label>
     <input
@@ -54,7 +54,7 @@
 <script>
 export default {
   data: () => ({
-    inputNumber: "",
+    number: "",
     inputName: "",
     selectedMonth: 0,
     selectedYear: 0,

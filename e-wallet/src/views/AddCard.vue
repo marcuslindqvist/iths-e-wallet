@@ -3,6 +3,7 @@
     <AddCardHeader></AddCardHeader>
     <CardComponent class="blank"></CardComponent>
     <AddCardForm></AddCardForm>
+    <p>HEJSAN</p>
     <a href="#" class="cta">Add Card</a>
   </div>
 </template>
