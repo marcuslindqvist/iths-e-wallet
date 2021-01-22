@@ -12,9 +12,10 @@ I PDF:en hittar du också ett förslag på vilka komponenter som bör finnas med
 
 Använd Vue Router för att konfigurera era vyer
 
-// Placera arrayen med alla kort i root-komponenten på samma sätt som Mini Library.
+Placera arrayen med alla kort i root-komponenten på (samma sätt som Mini Library).
 
-Placera arrayen med alla kort i ett globalt state vuex.
+Lägg även till funktionaliteten att ta bort ett kort genom att lägga till en knapp.
+När man trycker på den knappen ska en bekräftelseruta dyka upp, om man bekräftar så ska kortet raderas.
 
 ###### Förslag på datamodell
 
@@ -32,7 +33,3 @@ Placera arrayen med alla kort i ett globalt state vuex.
 #### build-mappen
 `build`-mappen innehåller en färdigbyggd version av appen. Öppna mappen med VS Code och öppna `index.html` med LiveServer för att se hur den ska se ut och fungera.
 
-
-#### Utmaning!
-Lägg även till funktionaliteten att ta bort ett kort genom att lägga till en knapp.
-När man trycker på den knappen ska en bekräftelseruta dyka upp, om man bekräftar så ska kortet raderas.
