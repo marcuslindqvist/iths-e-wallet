@@ -4,7 +4,7 @@
       v-for="card in cardArray"
       v-bind:key="card.id"
       v-bind:card="card"
-      @click="$emit('clicked', card.holder)"
+      @clicked="makeActive"
     />
   </section>
 </template>
@@ -15,6 +15,11 @@ import CardComponent from "@/components/CardComponent.vue";
 export default {
   components: {
     CardComponent,
+  },
+  methods: {
+    makeActive(name) {
+      this.$emit("clickedCard", name);
+    },
   },
   props: {
     cardArray: {

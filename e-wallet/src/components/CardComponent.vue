@@ -1,11 +1,18 @@
 <template>
-  <article class="card" v-bind:class="card.vendor">
+  <article
+    class="card"
+    v-bind:class="card.vendor"
+    @click="$emit('clicked', thisCard)"
+  >
     <header>
       <!--  -->
       <img src="@/assets/chip-light.svg" alt="chip" />
       <!--  -->
       <!--  -->
-      <img :src="`@/assets/vendor-${card.vendor}.svg`" alt="vendor" />
+      <img
+        v-bind:src="`@/assets/vendor-${this.card.vendor}.svg`"
+        alt="vendor"
+      />
       <!--  -->
     </header>
     <section class="number" v-if="card.number">{{ cardNumber }}</section>
@@ -28,7 +35,23 @@ export default {
     cardNumber() {
       return this.card.number.match(/.{1,4}/g).join(" ");
     },
+    bankImg() {
+      return `@/assets/vendor-${this.card.vendor}.svg`;
+    },
   },
+  data() {
+    return {
+      thisCard: {
+        holder: this.card.holder,
+        vendor: this.card.vendor,
+        number: this.card.number,
+        validMonth: this.card.validMonth,
+        validYear: this.card.validYear,
+        id: this.card.id,
+      },
+    };
+  },
+
   props: {
     card: {
       type: Object,
@@ -61,6 +84,19 @@ export default {
   grid-template-columns: 1fr 1fr;
   grid-auto-rows: 2.8rem;
   text-shadow: -1px -1px 2px hsla(0, 0%, 100%, 0.4);
+}
+.card header {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  grid-column: auto/span 2;
+  grid-row: auto/span 2;
+  -webkit-box-pack: justify;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+  -webkit-box-align: start;
+  -ms-flex-align: start;
+  align-items: flex-start;
 }
 .card section.info,
 .card section.number {

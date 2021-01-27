@@ -10,16 +10,6 @@ export default {};
 </script>
 
 <style lang="css" scoped>
-.top {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-  -ms-flex-direction: column;
-  flex-direction: column;
-  text-transform: uppercase;
-}
 .top h1,
 .top p {
   text-align: center;

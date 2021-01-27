@@ -24,6 +24,14 @@ new Vue({
         number: "4321432143214321",
         validMonth: "03",
         validYear: "22",
+        },
+        {
+        id: 1519211809936,
+        holder: "Antonia Forsblom",
+        vendor: "evil",
+        number: "1948573849304957",
+        validMonth: "12",
+        validYear: "23",
         }
       ],
     }
