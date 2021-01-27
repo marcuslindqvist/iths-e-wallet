@@ -1,19 +1,43 @@
 <template>
-  <div class="home">
-    <!--<HelloWorld msg="Welcome to Your Vue.js App" />-->
+  <main class="home">
+    <PageHeader />
+    <!-- <CardComponent /> -->
+    <CardStack v-bind:cardArray="getCardArray" @clicked="makeActive" />
     <router-link to="/AddCard">Add New Card</router-link>
-  </div>
+  </main>
 </template>
 
 <script>
-// @ is an alias to /src
-//import HelloWorld from "@/components/HelloWorld.vue";
+import PageHeader from "@/components/PageHeader.vue";
+// import CardComponent from "@/components/CardComponent.vue";
+import CardStack from "@/components/CardStack.vue";
 
 export default {
-  /*components: {
-    HelloWorld,
-  }*/
+  name: "Home",
+  components: {
+    PageHeader,
+    // CardComponent,
+    CardStack,
+  },
+  computed: {
+    getCardArray() {
+      return this.$root.cards;
+    },
+  },
+  data() {
+    return {
+      activeCard: {
+        holder: "Marcus Lindqvist",
+      },
+    };
+  },
+  methods: {
+    makeActive(clickedCard) {
+      this.activeCard.holder = clickedCard;
+    },
+  },
 };
 </script>
 
-<style lang="css" scoped></style>
+<style lang="css" scoped>
+</style>

@@ -8,22 +8,24 @@ new Vue({
   router,
   data() {
     return {
-      card: {
-          id: Date.now(),
-          holder: '',
-          vendor: '',
-          number: '',
-          validMonth: '',
-          validYear: '',
-      },
       cards: [
-        
+        {
+          id: 1519211809934,
+        holder: "Marcus Lindqvist",
+        vendor: "blockchain",
+        number: "1234567812345678",
+        validMonth: "07",
+        validYear: "23",
+        },
+        {
+        id: 1519211809935,
+        holder: "Carl Carlsson",
+        vendor: "ninja",
+        number: "4321432143214321",
+        validMonth: "03",
+        validYear: "22",
+        }
       ],
-    }
-  },
-  methods: {
-    pushCard() {
-      this.cards.push(this.card);
     }
   },
   render: h => h(App)

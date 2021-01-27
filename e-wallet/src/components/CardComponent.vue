@@ -1,17 +1,22 @@
 <template>
-  <article class="card">
+  <article class="card" v-bind:class="card.vendor">
     <header>
-      <img src="@/../../assets/chip-light.svg" alt="chip" />
+      <!--  -->
+      <img src="@/assets/chip-light.svg" alt="chip" />
+      <!--  -->
+      <!--  -->
+      <img :src="`@/assets/vendor-${card.vendor}.svg`" alt="vendor" />
+      <!--  -->
     </header>
-    <section class="number">{{ test.number }}</section>
+    <section class="number" v-if="card.number">{{ cardNumber }}</section>
     <section class="info">
       <aside class="holder">
         <span>Cardholder Name</span>
-        <p>{{ test.holder }}</p>
+        <p>{{ card.holder }}</p>
       </aside>
       <aside class="valid">
         <span>Valid until</span>
-        <p>{{ test.validMonth }}/{{ test.validYear }}</p>
+        <p>{{ card.validMonth }} / {{ card.validYear }}</p>
       </aside>
     </section>
   </article>
@@ -20,8 +25,13 @@
 <script>
 export default {
   computed: {
-    test() {
-      return this.$root.card;
+    cardNumber() {
+      return this.card.number.match(/.{1,4}/g).join(" ");
+    },
+  },
+  props: {
+    card: {
+      type: Object,
     },
   },
 };
@@ -91,5 +101,33 @@ aside {
 }
 .card section aside.valid p {
   text-align: right;
+}
+.bitcoin {
+  background: linear-gradient(
+      0.689turn,
+      hsla(0, 0%, 100%, 0.15),
+      hsla(0, 0%, 100%, 0) 99.07%
+    ),
+    #ffae34;
+  color: #222;
+}
+.blockchain {
+  background: linear-gradient(248.52deg, rgba(0, 0, 0, 0.15) 1.49%, transparent),
+    #8b58f9;
+  color: #fff;
+}
+.ninja {
+  background: linear-gradient(
+      248.3deg,
+      hsla(0, 0%, 100%, 0.15),
+      hsla(0, 0%, 100%, 0)
+    ),
+    #222;
+  color: #fff;
+}
+.evil {
+  background: linear-gradient(248.3deg, rgba(0, 0, 0, 0.16), transparent),
+    #f33355;
+  color: #fff;
 }
 </style>

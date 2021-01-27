@@ -1,31 +1,75 @@
 <template>
   <div>
-    <AddCardHeader></AddCardHeader>
-    <CardComponent class="blank"></CardComponent>
-    <AddCardForm></AddCardForm>
-    <p>HEJSAN</p>
-    <a href="#" class="cta">Add Card</a>
+    <PageHeader />
+    <CardComponent :card="card" />
+    <AddCardForm :card="card" />
+    <button @click.prevent="addCard">
+      <a href="/Home" class="cta"> Add Card </a>
+    </button>
   </div>
 </template>
 
 <script>
-import AddCardHeader from "@/components/AddCardHeader.vue";
+import PageHeader from "@/components/PageHeader.vue";
 import CardComponent from "@/components/CardComponent.vue";
 import AddCardForm from "@/components/AddCardForm.vue";
 
 export default {
+  name: "AddCard",
   components: {
-    AddCardHeader,
+    PageHeader,
     CardComponent,
     AddCardForm,
   },
   data() {
     return {
-      cards: [],
+      card: {
+        holder: "Marcus Lindqvist",
+        vendor: "",
+        number: "6666666666666666",
+        validMonth: "MM",
+        validYear: "YY",
+      },
     };
+  },
+  methods: {
+    addCard() {
+      const newCard = {
+        id: Date.now(),
+        holder: this.card.holder,
+        vendor: this.card.vendor,
+        number: this.card.number,
+        validMonth: this.card.validMonth,
+        validYear: this.card.validYear,
+      };
+      this.$root.cards.push(newCard);
+      this.$router.push("/");
+    },
   },
 };
 </script>
 
-<style lang="scss" scoped>
+<style lang="css">
+.cta {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  height: 4rem;
+  font-size: 1.2rem;
+  text-transform: uppercase;
+  font-weight: 700;
+  text-decoration: none;
+  color: #000;
+  border: 0.125rem solid #000;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  border-radius: 0.5rem;
+  margin: 2rem 0;
+}
 </style>

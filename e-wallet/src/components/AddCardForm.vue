@@ -7,19 +7,20 @@
       maxlength="16"
       placeholder="XXXX XXXX XXXX XXXX"
       class="col-2"
-      v-model="number"
+      v-model="card.number"
     />
     <label for="cardholder" class="col-2">Cardholder Name</label>
     <input
       type="text"
       name="cardholder"
       placeholder="Firstname Lastname"
+      maxlength="28"
       class="col-2"
-      v-model="test.holder"
+      v-model="card.holder"
     />
     <label for="month" class="col-1">Month</label>
     <label for="year" class="col-1">Year</label>
-    <select name="month" class="col-1" v-model="test.validMonth">
+    <select name="month" class="col-1" v-model="card.validMonth">
       <option value="01">01</option>
       <option value="02">02</option>
       <option value="03">03</option>
@@ -33,7 +34,7 @@
       <option value="11">11</option>
       <option value="12">12</option>
     </select>
-    <select name="year" class="col-1" v-model="test.validYear">
+    <select name="year" class="col-1" v-model="card.validYear">
       <option value="21">21</option>
       <option value="22">22</option>
       <option value="23">23</option>
@@ -41,43 +42,20 @@
       <option value="25">25</option>
     </select>
     <label for="vendor" class="col-2">Vendor</label>
-    <select name="vendor" class="col-2" v-model="test.vendor">
-      <option value="Bitcoin Inc">Bitcoin Inc</option>
-      <option value="Blockchain Inc">Blockchain Inc</option>
-      <option value="Evil Corp">Evil Corp</option>
-      <option value="Ninja Bank">Ninja Bank</option>
+    <select name="vendor" class="col-2" v-model="card.vendor">
+      <option value="bitcoin">Bitcoin Inc</option>
+      <option value="blockchain">Blockchain Inc</option>
+      <option value="evil">Evil Corp</option>
+      <option value="ninja">Ninja Bank</option>
     </select>
-    <button @click="addCard"></button>
   </section>
 </template>
 
 <script>
 export default {
-  data: () => ({
-    number: "",
-    inputName: "",
-    selectedMonth: 0,
-    selectedYear: 0,
-    selectedVendor: "",
-  }),
-
-  computed: {
-    test() {
-      return this.$root.card;
-    },
-  },
-
-  methods: {
-    addCard() {
-      // const newCard = {
-      //   number: this.inputNumber,
-      //   name: this.inputName,
-      //   month: this.selectedMonth,
-      //   year: this.selectedYear,
-      //   vendor: this.selectedVendor,
-      // };
-      console.log(this.getCard);
-      // this.$root.cards.push(this.getCard);
+  props: {
+    card: {
+      type: Object,
     },
   },
 };
@@ -112,5 +90,27 @@ select {
 }
 .col-1 {
   grid-column: auto/span 1;
+}
+a.cta {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  height: 4rem;
+  font-size: 1.2rem;
+  text-transform: uppercase;
+  font-weight: 700;
+  text-decoration: none;
+  color: #000;
+  border: 0.125rem solid #000;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  border-radius: 0.5rem;
+  margin: 2rem 0;
 }
 </style>
