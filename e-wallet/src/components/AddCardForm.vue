@@ -55,9 +55,9 @@
 export default {
   props: {
     card: {
-      type: Object,
-    },
-  },
+      type: Object
+    }
+  }
 };
 </script>
 

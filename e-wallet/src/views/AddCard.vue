@@ -19,7 +19,7 @@ export default {
   components: {
     PageHeader,
     CardComponent,
-    AddCardForm,
+    AddCardForm
   },
   data() {
     return {
@@ -28,8 +28,8 @@ export default {
         vendor: "",
         number: "6666666666666666",
         validMonth: "MM",
-        validYear: "YY",
-      },
+        validYear: "YY"
+      }
     };
   },
   methods: {
@@ -40,12 +40,12 @@ export default {
         vendor: this.card.vendor,
         number: this.card.number,
         validMonth: this.card.validMonth,
-        validYear: this.card.validYear,
+        validYear: this.card.validYear
       };
       this.$root.cards.push(newCard);
       this.$router.push("/");
-    },
-  },
+    }
+  }
 };
 </script>
 

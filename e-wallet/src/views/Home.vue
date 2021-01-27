@@ -58,7 +58,10 @@ export default {
       this.activeCard.id = name.id;
     },
     eraseCard(cardId) {
-      console.log(cardId);
+      const found = this.getCardArray.indexOf(cardId);
+      if (confirm("Do you really want to delete?")) {
+        console.log(found);
+      }
     },
   },
 };

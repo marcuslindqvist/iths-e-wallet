@@ -6,12 +6,33 @@
   >
     <header>
       <!--  -->
-      <img src="@/assets/chip-light.svg" alt="chip" />
+      <img
+        v-if="card.vendor === 'bitcoin'"
+        src="@/assets/chip-dark.svg"
+        alt="chip"
+      />
+      <img v-else src="@/assets/chip-light.svg" alt="chip" />
       <!--  -->
       <!--  -->
       <img
-        v-bind:src="`@/assets/vendor-${this.card.vendor}.svg`"
-        alt="vendor"
+        v-if="card.vendor === 'evil'"
+        src="@/assets/vendor-evil.svg"
+        alt="evil"
+      />
+      <img
+        v-if="card.vendor === 'bitcoin'"
+        src="@/assets/vendor-bitcoin.svg"
+        alt="bitcoin"
+      />
+      <img
+        v-if="card.vendor === 'ninja'"
+        src="@/assets/vendor-ninja.svg"
+        alt="ninja"
+      />
+      <img
+        v-if="card.vendor === 'blockchain'"
+        src="@/assets/vendor-blockchain.svg"
+        alt="blockchain"
       />
       <!--  -->
     </header>
@@ -34,9 +55,6 @@ export default {
   computed: {
     cardNumber() {
       return this.card.number.match(/.{1,4}/g).join(" ");
-    },
-    bankImg() {
-      return `@/assets/vendor-${this.card.vendor}.svg`;
     },
   },
   data() {
