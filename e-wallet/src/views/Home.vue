@@ -4,7 +4,7 @@
     <CardComponent :card="activeCard" />
     <button
       v-if="activeCard.holder"
-      @click="eraseCard(activeCard.id)"
+      @click="eraseCard(activeCard)"
       class="eraseBtn"
     >
       Radera kortet
@@ -38,11 +38,11 @@ export default {
   data() {
     return {
       activeCard: {
-        holder: "Anna Andersson",
-        vendor: "evil",
+        holder: "Emil Exempelsson",
+        vendor: "blank",
         number: "0000000000000000",
-        validMonth: "MM",
-        validYear: "YY",
+        validMonth: "01",
+        validYear: "21",
         id: "",
       },
     };
@@ -57,11 +57,17 @@ export default {
       this.activeCard.validYear = name.validYear;
       this.activeCard.id = name.id;
     },
-    eraseCard(cardId) {
-      const found = this.getCardArray.indexOf(cardId);
-      if (confirm("Do you really want to delete?")) {
-        console.log(found);
-      }
+
+    eraseCard(veryCard) {
+      this.$root.setEraseCard(veryCard);
+      this.activeCard = {
+        holder: "Emil Exempelsson",
+        vendor: "blank",
+        number: "0000000000000000",
+        validMonth: "01",
+        validYear: "21",
+        id: "",
+      };
     },
   },
 };

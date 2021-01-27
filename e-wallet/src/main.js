@@ -36,5 +36,19 @@ new Vue({
       ]
     };
   },
+  methods: {
+    setEraseCard(veryCard) {
+      const pos = this.cards
+        .map(function (e) {
+          return e.id;
+        })
+        .indexOf(veryCard.id);
+
+      if (confirm("Do you really want to delete this card?")) {
+        this.cards.splice(pos, 1);
+        console.log(pos);
+      }
+    }
+  },
   render: h => h(App)
 }).$mount("#app");
