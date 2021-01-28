@@ -55,7 +55,7 @@ export default {
   computed: {
     cardNumber() {
       return this.card.number.match(/.{1,4}/g).join(" ");
-    },
+    }
   },
   data() {
     return {
@@ -65,16 +65,16 @@ export default {
         number: this.card.number,
         validMonth: this.card.validMonth,
         validYear: this.card.validYear,
-        id: this.card.id,
-      },
+        id: this.card.id
+      }
     };
   },
 
   props: {
     card: {
-      type: Object,
-    },
-  },
+      type: Object
+    }
+  }
 };
 </script>
 

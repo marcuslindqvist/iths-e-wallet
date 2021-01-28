@@ -39,7 +39,7 @@ new Vue({
   methods: {
     setEraseCard(veryCard) {
       const pos = this.cards
-        .map(function (e) {
+        .map(function(e) {
           return e.id;
         })
         .indexOf(veryCard.id);

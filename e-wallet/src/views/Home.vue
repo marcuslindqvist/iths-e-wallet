@@ -28,12 +28,12 @@ export default {
   components: {
     PageHeader,
     CardComponent,
-    CardStack,
+    CardStack
   },
   computed: {
     getCardArray() {
       return this.$root.cards;
-    },
+    }
   },
   data() {
     return {
@@ -43,8 +43,8 @@ export default {
         number: "0000000000000000",
         validMonth: "01",
         validYear: "21",
-        id: "",
-      },
+        id: ""
+      }
     };
   },
 
@@ -66,10 +66,10 @@ export default {
         number: "0000000000000000",
         validMonth: "01",
         validYear: "21",
-        id: "",
+        id: ""
       };
-    },
-  },
+    }
+  }
 };
 </script>
 
@@ -111,6 +111,10 @@ export default {
   border-radius: 0.5rem;
   margin: 2rem 0;
 }
+.cta:hover {
+  background-color: black;
+  color: white;
+}
 .eraseBtn {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -121,7 +125,7 @@ export default {
   -webkit-box-align: center;
   -ms-flex-align: center;
   align-items: center;
-  height: 3rem;
+  height: 2rem;
   font-size: 0.6rem;
   text-transform: uppercase;
   font-weight: 700;

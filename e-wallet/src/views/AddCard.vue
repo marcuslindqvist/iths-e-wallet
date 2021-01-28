@@ -3,9 +3,7 @@
     <PageHeader />
     <CardComponent :card="card" />
     <AddCardForm :card="card" />
-    <button @click.prevent="addCard">
-      <a href="/Home" class="cta"> Add Card </a>
-    </button>
+    <a href="/Home" class="cta" @click.prevent="addCard"> Add Card </a>
   </div>
 </template>
 
@@ -21,14 +19,15 @@ export default {
     CardComponent,
     AddCardForm
   },
+
   data() {
     return {
       card: {
-        holder: "Marcus Lindqvist",
-        vendor: "",
-        number: "6666666666666666",
-        validMonth: "MM",
-        validYear: "YY"
+        holder: "Emil Exempelsson",
+        vendor: "blank",
+        number: "0000000000000000",
+        validMonth: "01",
+        validYear: "21"
       }
     };
   },
@@ -71,5 +70,9 @@ export default {
   box-sizing: border-box;
   border-radius: 0.5rem;
   margin: 2rem 0;
+}
+.cta:hover {
+  background-color: black;
+  color: white;
 }
 </style>
