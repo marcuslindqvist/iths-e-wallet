@@ -1,12 +1,18 @@
 <template>
   <header class="top">
-    <h1 class="top">add new card</h1>
-    <p class="card-type">new card</p>
+    <h1 class="top">{{ headerText.h1 }}</h1>
+    <p class="card-type">{{ headerText.p }}</p>
   </header>
 </template>
 
 <script>
-export default {};
+export default {
+  props: {
+    headerText: {
+      type: Object,
+    },
+  },
+};
 </script>
 
 <style lang="css" scoped>

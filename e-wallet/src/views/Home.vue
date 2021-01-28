@@ -1,6 +1,6 @@
 <template>
   <main class="home">
-    <PageHeader class="top" />
+    <PageHeader class="top" :headerText="header" />
     <CardComponent :card="activeCard" />
     <button
       v-if="activeCard.holder"
@@ -28,12 +28,12 @@ export default {
   components: {
     PageHeader,
     CardComponent,
-    CardStack
+    CardStack,
   },
   computed: {
     getCardArray() {
       return this.$root.cards;
-    }
+    },
   },
   data() {
     return {
@@ -43,8 +43,12 @@ export default {
         number: "0000000000000000",
         validMonth: "01",
         validYear: "21",
-        id: ""
-      }
+        id: "",
+      },
+      header: {
+        h1: "e-wallet",
+        p: "active card",
+      },
     };
   },
 
@@ -66,10 +70,10 @@ export default {
         number: "0000000000000000",
         validMonth: "01",
         validYear: "21",
-        id: ""
+        id: "",
       };
-    }
-  }
+    },
+  },
 };
 </script>
 

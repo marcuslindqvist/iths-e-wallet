@@ -1,9 +1,9 @@
 <template>
   <div>
-    <PageHeader />
+    <PageHeader class="top" :headerText="header" />
     <CardComponent :card="card" />
     <AddCardForm :card="card" />
-    <a href="/Home" class="cta" @click.prevent="addCard"> Add Card </a>
+    <a href="/Home" class="cta" @click.prevent="checkFields"> Add Card </a>
   </div>
 </template>
 
@@ -17,21 +17,32 @@ export default {
   components: {
     PageHeader,
     CardComponent,
-    AddCardForm
+    AddCardForm,
   },
 
   data() {
     return {
       card: {
-        holder: "Emil Exempelsson",
+        holder: "",
         vendor: "blank",
-        number: "0000000000000000",
+        number: "",
         validMonth: "01",
-        validYear: "21"
-      }
+        validYear: "21",
+      },
+      header: {
+        h1: "add new card",
+        p: "new card",
+      },
     };
   },
   methods: {
+    checkFields() {
+      if (!this.card.holder || !this.card.vendor || !this.card.number) {
+        alert("Du måste fylla i alla fält");
+      } else {
+        this.addCard();
+      }
+    },
     addCard() {
       const newCard = {
         id: Date.now(),
@@ -39,16 +50,26 @@ export default {
         vendor: this.card.vendor,
         number: this.card.number,
         validMonth: this.card.validMonth,
-        validYear: this.card.validYear
+        validYear: this.card.validYear,
       };
       this.$root.cards.push(newCard);
       this.$router.push("/");
-    }
-  }
+    },
+  },
 };
 </script>
 
 <style lang="css">
+.top {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  text-transform: uppercase;
+}
 .cta {
   display: -webkit-box;
   display: -ms-flexbox;
