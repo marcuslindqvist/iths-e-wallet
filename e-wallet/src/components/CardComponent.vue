@@ -5,15 +5,12 @@
     @click="$emit('clicked', thisCard)"
   >
     <header>
-      <!--  -->
       <img
         v-if="card.vendor === 'bitcoin'"
         src="@/assets/chip-dark.svg"
         alt="chip"
       />
       <img v-else src="@/assets/chip-light.svg" alt="chip" />
-      <!--  -->
-      <!--  -->
       <img
         v-if="card.vendor === 'evil'"
         src="@/assets/vendor-evil.svg"
@@ -34,9 +31,10 @@
         src="@/assets/vendor-blockchain.svg"
         alt="blockchain"
       />
-      <!--  -->
     </header>
     <section class="number" v-if="card.number">{{ cardNumber }}</section>
+    <section class="number" v-else></section>
+
     <section class="info">
       <aside class="holder">
         <span>Cardholder Name</span>
@@ -55,7 +53,7 @@ export default {
   computed: {
     cardNumber() {
       return this.card.number.match(/.{1,4}/g).join(" ");
-    }
+    },
   },
   data() {
     return {
@@ -65,16 +63,16 @@ export default {
         number: this.card.number,
         validMonth: this.card.validMonth,
         validYear: this.card.validYear,
-        id: this.card.id
-      }
+        id: this.card.id,
+      },
     };
   },
 
   props: {
     card: {
-      type: Object
-    }
-  }
+      type: Object,
+    },
+  },
 };
 </script>
 
@@ -102,6 +100,7 @@ export default {
   grid-template-columns: 1fr 1fr;
   grid-auto-rows: 2.8rem;
   text-shadow: -1px -1px 2px hsla(0, 0%, 100%, 0.4);
+  z-index: 1;
 }
 .card header {
   display: -webkit-box;

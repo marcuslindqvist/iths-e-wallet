@@ -46,7 +46,6 @@ new Vue({
 
       if (confirm("Do you really want to delete this card?")) {
         this.cards.splice(pos, 1);
-        console.log(pos);
       }
     }
   },

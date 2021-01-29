@@ -1,14 +1,15 @@
 <template>
   <main class="home">
     <PageHeader class="top" :headerText="header" />
-    <CardComponent :card="activeCard" />
     <button
       v-if="activeCard.holder"
       @click="eraseCard(activeCard)"
       class="eraseBtn"
     >
-      Radera kortet
+      X
     </button>
+    <CardComponent :card="activeCard" />
+
     <CardStack
       class="card-stack"
       :cardArray="getCardArray"
@@ -38,9 +39,9 @@ export default {
   data() {
     return {
       activeCard: {
-        holder: "Emil Exempelsson",
+        holder: "",
         vendor: "blank",
-        number: "0000000000000000",
+        number: "",
         validMonth: "01",
         validYear: "21",
         id: "",
@@ -65,9 +66,9 @@ export default {
     eraseCard(veryCard) {
       this.$root.setEraseCard(veryCard);
       this.activeCard = {
-        holder: "Emil Exempelsson",
+        holder: "",
         vendor: "blank",
-        number: "0000000000000000",
+        number: "",
         validMonth: "01",
         validYear: "21",
         id: "",
@@ -78,6 +79,9 @@ export default {
 </script>
 
 <style lang="css" scoped>
+CardComponent {
+  margin-top: 2rem;
+}
 .card-stack {
   margin: 2rem 0 12rem;
   display: grid;
@@ -92,6 +96,7 @@ export default {
   -ms-flex-direction: column;
   flex-direction: column;
   text-transform: uppercase;
+  margin-bottom: 1rem;
 }
 .cta {
   display: -webkit-box;
@@ -119,9 +124,11 @@ export default {
   background-color: black;
   color: white;
 }
+button {
+  background-color: none;
+  border: none;
+}
 .eraseBtn {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
   -webkit-box-pack: center;
   -ms-flex-pack: center;
@@ -129,18 +136,16 @@ export default {
   -webkit-box-align: center;
   -ms-flex-align: center;
   align-items: center;
-  height: 2rem;
-  font-size: 0.6rem;
+  height: 1rem;
+  font-size: 2rem;
   text-transform: uppercase;
   font-weight: 700;
   text-decoration: none;
   color: #000;
-  border: 0.125rem solid #000;
-  -webkit-box-sizing: border-box;
-  box-sizing: border-box;
-  border-radius: 0.5rem;
-  margin: 2rem 0;
-  background-color: white;
+  margin: -0.5rem -2.5rem -1rem auto;
   font-family: PT Mono, monospace;
+  z-index: 10;
+  background-color: white;
+  cursor: pointer;
 }
 </style>

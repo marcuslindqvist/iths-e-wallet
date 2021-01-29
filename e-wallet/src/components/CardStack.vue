@@ -14,23 +14,20 @@ import CardComponent from "@/components/CardComponent.vue";
 
 export default {
   components: {
-    CardComponent
+    CardComponent,
   },
   methods: {
     makeActive(name) {
       this.$emit("clickedCard", name);
-    }
+    },
   },
   props: {
     cardArray: {
-      type: Array
-    }
-  }
+      type: Array,
+    },
+  },
 };
 </script>
 
 <style lang="css" scoped>
-.card {
-  margin-bottom: 15px;
-}
 </style>

@@ -9,9 +9,9 @@
 export default {
   props: {
     headerText: {
-      type: Object,
-    },
-  },
+      type: Object
+    }
+  }
 };
 </script>
 

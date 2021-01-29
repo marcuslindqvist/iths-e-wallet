@@ -17,7 +17,7 @@ export default {
   components: {
     PageHeader,
     CardComponent,
-    AddCardForm,
+    AddCardForm
   },
 
   data() {
@@ -26,23 +26,24 @@ export default {
         holder: "",
         vendor: "blank",
         number: "",
-        validMonth: "01",
-        validYear: "21",
+        validMonth: "",
+        validYear: ""
       },
       header: {
         h1: "add new card",
-        p: "new card",
-      },
+        p: "new card"
+      }
     };
   },
   methods: {
     checkFields() {
-      if (!this.card.holder || !this.card.vendor || !this.card.number) {
+      if (!this.card.holder || !this.card.number) {
         alert("Du måste fylla i alla fält");
       } else {
         this.addCard();
       }
     },
+    
     addCard() {
       const newCard = {
         id: Date.now(),
@@ -50,12 +51,12 @@ export default {
         vendor: this.card.vendor,
         number: this.card.number,
         validMonth: this.card.validMonth,
-        validYear: this.card.validYear,
+        validYear: this.card.validYear
       };
       this.$root.cards.push(newCard);
       this.$router.push("/");
-    },
-  },
+    }
+  }
 };
 </script>
 

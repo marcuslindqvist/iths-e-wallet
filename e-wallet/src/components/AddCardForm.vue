@@ -21,6 +21,7 @@
     <label for="month" class="col-1">Month</label>
     <label for="year" class="col-1">Year</label>
     <select name="month" class="col-1" v-model="card.validMonth">
+      <option value=""></option>
       <option value="01">01</option>
       <option value="02">02</option>
       <option value="03">03</option>
@@ -35,6 +36,7 @@
       <option value="12">12</option>
     </select>
     <select name="year" class="col-1" v-model="card.validYear">
+      <option value=""></option>
       <option value="21">21</option>
       <option value="22">22</option>
       <option value="23">23</option>
@@ -91,26 +93,7 @@ select {
 .col-1 {
   grid-column: auto/span 1;
 }
-a.cta {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: center;
-  -ms-flex-pack: center;
-  justify-content: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
-  height: 4rem;
-  font-size: 1.2rem;
-  text-transform: uppercase;
-  font-weight: 700;
-  text-decoration: none;
-  color: #000;
-  border: 0.125rem solid #000;
-  -webkit-box-sizing: border-box;
-  box-sizing: border-box;
-  border-radius: 0.5rem;
-  margin: 2rem 0;
+input:placeholder-shown {
+  border: 1px solid red; /* Red border only if the input is empty */
 }
 </style>
